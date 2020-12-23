@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cheatexam_question',
+    'cheatexam_forms',
+    'cheatexam_account',
 ]
 
 MIDDLEWARE = [

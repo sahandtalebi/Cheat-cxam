@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cheatexam_forms.views import forms_view
+from cheatexam_account.views import login_forms
 from .view import homepage,\
     new_question, \
     answer_question, \
     delete_the_item
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', homepage),
+    path('login' , login_forms),
     path('question/', new_question),
     path('answer-the-question/<int:id>', answer_question),
     path('delete-the-question/<int:id>', delete_the_item),
+    path('form/<slug>', forms_view),
+    path('admin/', admin.site.urls),
 ]
