@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 def homepage(request):
     ct = request.session.get('count', 0)
     new_count = ct + 1
@@ -25,14 +26,11 @@ def new_question(request, q=None):
     answer = request.GET.get('a')
     username = request.GET.get('username')
     username = User.objects.filter(username=username).first()
-
     if massage:
         Question.objects.create(message=massage, answer=answer, created_by=username)
 
-
-
-
     return redirect('/')
+
 
 def answer_question(request, **kwargs):
     id = (kwargs['id'])

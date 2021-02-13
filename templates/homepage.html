@@ -187,15 +187,17 @@
     <center>
         <div style="padding: 10px">
 
-               <form method="get" action="/question/" >
-            {% csrf_token %}
-            <input style="width: 80%; margin: 2%" placeholder="سوال را وارد کنید" class="form-control " type="text" name="q" >
-            <input style="width: 80%; margin: 2%" placeholder="جواب را وارد کنید" class="form-control" type="text" name="a" >
+            <form method="get" action="/question/">
+                {% csrf_token %}
+                <input style="width: 80%; margin: 2%" placeholder="سوال را وارد کنید" class="form-control " type="text"
+                       name="q">
+                <input style="width: 80%; margin: 2%" placeholder="جواب را وارد کنید" class="form-control" type="text"
+                       name="a">
 
-                   <input type="hidden" value="{{ request.user }}" name="username">
+                <input type="hidden" value="{{ request.user }}" name="username">
 
-      <input class="btn btn-warning form-control" type="submit" value="ثبت"  >
-        </form>
+                <input class="btn btn-warning form-control" type="submit" value="ثبت">
+            </form>
 
         </center>
 
@@ -235,12 +237,12 @@
 
 
         <div class="project-box-footer">
-    <form method="get" action="/answer-the-question/{{ q.id }}">
-        {% if request.user.is_authenticated %}
+            <form method="get" action="/answer-the-question/{{ q.id }}">
+                {% if request.user.is_authenticated %}
                     <input class="btn btn-danger" type="submit" name="dq" value="حذف این مورد">
 
-                    {% endif %}
-    </form>
+                {% endif %}
+            </form>
           <div class="days-left" style="color: #df3670; direction: rtl">
            {{ q.timestamp | timesince }} قبل
           </div>
@@ -275,5 +277,5 @@
 </html>
 
 {% else %}
-    {{" برای مشاهده ورود کنید." }}
+    {{" login/اول لاگ این کن"}}
 {% endif %}

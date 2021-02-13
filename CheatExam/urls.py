@@ -22,12 +22,13 @@ from .view import homepage,\
     answer_question, \
     delete_the_item
 
+
 urlpatterns = [
     path('', homepage),
-    path('login' , login_forms),
+    path('login', login_forms),
     path('question/', new_question),
-    path('answer-the-question/<int:id>', answer_question),
     path('delete-the-question/<int:id>', delete_the_item),
+    path('answer-the-question/<int:id>', answer_question),
     path('form/<slug>', forms_view),
     path('admin/', admin.site.urls),
 ]
